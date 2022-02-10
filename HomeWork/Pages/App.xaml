@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeWork.App">
+    <Application.Resources>
+        <Style x:Key="LoginEntry"
+               TargetType="Frame">
+            <Setter Property="CornerRadius" Value="30"/>
+            <Setter Property="BackgroundColor" Value="CadetBlue"/>
+        </Style>
+        <Style x:Key="Defualt"
+               TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Pink"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Application.Resources>
+</Application>

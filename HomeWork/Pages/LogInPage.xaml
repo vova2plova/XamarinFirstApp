@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeWork.LogInPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Wheat">
+            <Frame Margin="20,100,20,0"
+                   BackgroundColor="PapayaWhip"
+                   CornerRadius="5">
+                <Label Text="Страница входа"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       FontSize="24"
+                       TextColor="CadetBlue"/>
+            </Frame>
+            <Frame HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   WidthRequest="340"
+                   Margin="10"
+                   CornerRadius="10"
+                   BackgroundColor="PapayaWhip">
+                <StackLayout>
+                    <Frame Style="{StaticResource LoginEntry}">
+                        <Entry x:Name="Login" Placeholder="Логин" PlaceholderColor="PapayaWhip"/>
+                    </Frame>
+                    <Frame Style="{StaticResource LoginEntry}">
+                        <Entry x:Name="Password" Placeholder="Пароль" PlaceholderColor="PapayaWhip"/>
+                    </Frame>
+                    <Button Text="Войти"
+                            Margin="0,20,0,0"
+                            CornerRadius="10"
+                            Clicked="Button_Clicked"/>
+                    <Button Text="Регистрация"
+                            Margin="0,20,0,0"
+                            CornerRadius="10"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
