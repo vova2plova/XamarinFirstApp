@@ -180,8 +180,12 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <StackLayout>
-                                <Label Text="{Binding author}" TextColor="LightPink" Margin="10,10,10,0"/>
-                                <Image Source="{Binding image}" Margin="5,10,10,5"/>
+                                        <Frame CornerRadius="10" Margin="10" BackgroundColor="Gray">
+                                    <StackLayout>
+                                        <Label Text="{Binding author}" TextColor="LightYellow"/>
+                                        <Image Source="{Binding image}"/>
+                                    </StackLayout>
+                                </Frame>
                             </StackLayout>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>

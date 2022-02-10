@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,10 +32,14 @@ namespace HomeWork
             int i = 0;
             foreach (var post in posts)
             {
-                using (WebClient client = new WebClient())
+                using (HttpClient client = new HttpClient())
                 {
-                    client.DownloadFileAsync(new Uri(post.download_url), $@"C:\Users\user\Desktop\HomeWork\HomeWork\Images\image{i}.jpg");
-                    post.image = ImageSource.FromFile($@"C:\Users\user\Desktop\HomeWork\HomeWork\Images\image{i}.jpg");
+                    if (!post.download_url.Trim().StartsWith("https", StringComparison.OrdinalIgnoreCase))
+                        throw new Exception("iOS and Android Require Https");
+                    byte[] bytes = await client.GetByteArrayAsync(post.download_url);
+                    Xamarin.Essentials.Preferences.Set($"image{i}", Convert.ToBase64String(bytes));
+                    var image = Xamarin.Essentials.Preferences.Get($"image{i}", string.Empty);
+                    post.image = ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(image)));
                 }
                 i++;
             }
